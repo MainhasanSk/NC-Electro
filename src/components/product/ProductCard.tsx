@@ -97,14 +97,14 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
         </button>
 
         {/* Fast Local Delivery Tag in Guwahati */}
-        <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] text-slate-700 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/60 shadow-sm pointer-events-none">
+        <div className="absolute bottom-2 left-2 right-2 sm:bottom-2.5 sm:left-3 sm:right-3 flex items-center justify-between text-[9px] sm:text-[11px] text-slate-700 bg-white/90 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg border border-slate-200/60 shadow-sm pointer-events-none">
           <span className="flex items-center gap-1 font-semibold text-blue-700 truncate">
-            <Zap className="w-3 h-3 fill-blue-600 text-blue-600 shrink-0" />
-            <span>Guwahati Fast Dispatch</span>
+            <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-blue-600 text-blue-600 shrink-0" />
+            <span className="truncate">Fast Dispatch</span>
           </span>
           {product.has_installation_support && (
             <span className="flex items-center gap-0.5 text-emerald-700 font-semibold shrink-0" title="Installation support available">
-              <ShieldCheck className="w-3.5 h-3.5" />
+              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span className="hidden sm:inline">Installed</span>
             </span>
           )}
@@ -112,45 +112,45 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
       </div>
 
       {/* Content Area */}
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+      <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
-          <div className="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span className="font-bold uppercase tracking-wider text-blue-600">{product.brand}</span>
-            <span className="truncate max-w-[120px] text-slate-400">{product.category.name}</span>
+          <div className="flex items-center justify-between text-[10px] sm:text-xs text-slate-500 mb-1">
+            <span className="font-bold uppercase tracking-wider text-blue-600 truncate">{product.brand}</span>
+            <span className="hidden sm:inline truncate max-w-[120px] text-slate-400">{product.category.name}</span>
           </div>
 
-          <h3 className="font-bold text-slate-900 text-sm sm:text-base line-clamp-2 leading-snug group-hover:text-blue-600 transition-colors">
+          <h3 className="font-bold text-slate-900 text-xs sm:text-base line-clamp-2 leading-tight sm:leading-snug group-hover:text-blue-600 transition-colors">
             {product.name}
           </h3>
 
           {variant === 'default' && product.short_description && (
-            <p className="text-xs text-slate-500 mt-1.5 line-clamp-1">
+            <p className="hidden sm:block text-xs text-slate-500 mt-1.5 line-clamp-1">
               {product.short_description}
             </p>
           )}
         </div>
 
         {/* Pricing & Add To Cart Button */}
-        <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+        <div className="pt-2.5 sm:pt-4 mt-2 sm:mt-3 border-t border-slate-100 flex items-center justify-between gap-1 sm:gap-2">
           <div>
-            <div className="flex items-baseline gap-1.5 flex-wrap">
-              <span className="text-base sm:text-lg font-black text-slate-950">
+            <div className="flex items-baseline gap-1 sm:gap-1.5 flex-wrap">
+              <span className="text-sm sm:text-lg font-black text-slate-950">
                 ₹{product.price.toLocaleString('en-IN')}
               </span>
               {product.original_price > product.price && (
-                <span className="text-xs text-slate-400 line-through">
+                <span className="text-[10px] sm:text-xs text-slate-400 line-through">
                   ₹{product.original_price.toLocaleString('en-IN')}
                 </span>
               )}
             </div>
-            <div className="text-[10px] text-slate-400">Incl. of GST (Assam)</div>
+            <div className="text-[9px] sm:text-[10px] text-slate-400">Incl. GST</div>
           </div>
 
           <button
             type="button"
             onClick={handleAddToCart}
             disabled={isOutOfStock}
-            className={`relative z-20 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-1.5 shrink-0 ${
+            className={`relative z-20 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1 sm:gap-1.5 shrink-0 ${
               isOutOfStock
                 ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
                 : added
@@ -160,14 +160,14 @@ export function ProductCard({ product, variant = 'default' }: ProductCardProps) 
           >
             {added ? (
               <>
-                <Check className="w-3.5 h-3.5" />
-                <span>Added</span>
+                <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="hidden sm:inline">Added</span>
               </>
             ) : isOutOfStock ? (
-              <span>Out of Stock</span>
+              <span>Out</span>
             ) : (
               <>
-                <ShoppingBag className="w-3.5 h-3.5" />
+                <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 <span>Add</span>
               </>
             )}

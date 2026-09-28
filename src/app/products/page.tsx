@@ -478,7 +478,7 @@ function ProductsContent() {
             {/* Products Grid */}
             <div className="lg:col-span-3">
               {loading && products.length === 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                   {[1, 2, 3, 4, 5, 6].map(n => (
                     <div key={n} className="bg-white rounded-2xl p-4 border border-slate-200 animate-pulse space-y-4">
                       <div className="aspect-square bg-slate-200 rounded-xl" />
@@ -488,7 +488,7 @@ function ProductsContent() {
                   ))}
                 </div>
               ) : products.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                   {products.map(product => (
                     <ProductCard key={product.id} product={product} />
                   ))}
