@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tool forwarders
+powershell.cmd
+powershell.bat
+console.log*
+
